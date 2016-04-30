@@ -43,7 +43,7 @@
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="dH7-Rm-XNZ" kind="show" id="M84-nA-2Ww"/>
+                                            <segue destination="dH7-Rm-XNZ" kind="show" identifier="startRegistration" id="M84-nA-2Ww"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -75,7 +75,7 @@
                                 <inset key="contentEdgeInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <segue destination="o32-ye-2lb" kind="show" id="Yqb-iW-6D1"/>
+                                    <action selector="tryLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Jn-1L-YR8"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfd-nt-wVJ">
@@ -118,6 +118,11 @@
                             <constraint firstItem="vg6-hx-AyD" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="y9M-EK-Bpk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="UsernameField" destination="xal-oT-EFa" id="gOk-Nm-eAa"/>
+                        <outlet property="passwordField" destination="Q47-D2-jC9" id="LE6-LU-1Ze"/>
+                        <segue destination="o32-ye-2lb" kind="showDetail" identifier="loginUser" id="j3s-Pn-bxI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,7 +277,7 @@
         <!--RegisterPhotoView-->
         <scene sceneID="e7y-j7-4pd">
             <objects>
-                <viewController title="RegisterPhotoView" id="LMf-vK-ArD" sceneMemberID="viewController">
+                <viewController title="RegisterPhotoView" id="LMf-vK-ArD" customClass="PhotoViewController" customModule="DogCommunity" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zlt-Fw-IY3"/>
                         <viewControllerLayoutGuide type="bottom" id="6kM-30-Cqv"/>
@@ -290,6 +295,9 @@
                                         <state key="normal" title="Gallery">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="searchGallery:" destination="LMf-vK-ArD" eventType="touchUpInside" id="Q26-Nv-00Q"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TI-GR-15m">
                                         <rect key="frame" x="300" y="258" width="140" height="30"/>
@@ -297,6 +305,9 @@
                                         <state key="normal" title="Take a photo">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="LMf-vK-ArD" eventType="touchUpInside" id="CRr-Vj-Cz2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Q-cO-qdO">
                                         <rect key="frame" x="210" y="320" width="180" height="30"/>
@@ -397,15 +408,18 @@
                             <constraint firstItem="Ksn-Kl-r9o" firstAttribute="width" secondItem="lUo-u3-NJ2" secondAttribute="width" id="wln-Zy-JDk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="userImage" destination="TyP-Y4-0v1" id="rRo-dD-FCa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2YC-QO-VRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1021" y="509"/>
         </scene>
-        <!--View Controller-->
+        <!--Friends View Controller-->
         <scene sceneID="gRA-Ws-zBx">
             <objects>
-                <viewController id="o32-ye-2lb" sceneMemberID="viewController">
+                <viewController id="o32-ye-2lb" customClass="FriendsViewController" customModule="DogCommunity" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z2J-xP-eRE"/>
                         <viewControllerLayoutGuide type="bottom" id="Lg6-9i-Pl5"/>
@@ -417,9 +431,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34k-vA-Qzc">
                                 <rect key="frame" x="0.0" y="20" width="600" height="180"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sHC-rz-01e">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Z-bl-wXq">
                                         <rect key="frame" x="0.0" y="150" width="150" height="30"/>
                                         <state key="normal" title="My Profile">
@@ -450,19 +461,15 @@
                                     <constraint firstItem="TZ9-iv-jue" firstAttribute="leading" secondItem="Q1Z-bl-wXq" secondAttribute="trailing" id="1xR-TI-YIn"/>
                                     <constraint firstItem="Q1Z-bl-wXq" firstAttribute="leading" secondItem="34k-vA-Qzc" secondAttribute="leading" id="6he-XV-3y4"/>
                                     <constraint firstAttribute="bottom" secondItem="Q1Z-bl-wXq" secondAttribute="bottom" id="7yh-aF-mGA"/>
-                                    <constraint firstItem="sHC-rz-01e" firstAttribute="top" secondItem="34k-vA-Qzc" secondAttribute="top" id="8DT-9X-RbV"/>
-                                    <constraint firstItem="sHC-rz-01e" firstAttribute="width" secondItem="34k-vA-Qzc" secondAttribute="width" id="DZp-FH-6jK"/>
                                     <constraint firstItem="Km5-5A-TqI" firstAttribute="width" secondItem="34k-vA-Qzc" secondAttribute="width" multiplier="0.25" id="Dqo-9f-PVp"/>
                                     <constraint firstItem="cCC-QM-aZs" firstAttribute="leading" secondItem="TZ9-iv-jue" secondAttribute="trailing" id="EnF-ce-29F"/>
                                     <constraint firstItem="Km5-5A-TqI" firstAttribute="leading" secondItem="cCC-QM-aZs" secondAttribute="trailing" id="HCe-Ol-5Zm"/>
                                     <constraint firstItem="Km5-5A-TqI" firstAttribute="height" secondItem="34k-vA-Qzc" secondAttribute="height" id="JEq-Kx-ZaN"/>
                                     <constraint firstItem="TZ9-iv-jue" firstAttribute="width" secondItem="34k-vA-Qzc" secondAttribute="width" multiplier="0.25" id="O54-h6-sVm"/>
                                     <constraint firstItem="cCC-QM-aZs" firstAttribute="width" secondItem="34k-vA-Qzc" secondAttribute="width" multiplier="0.25" id="SYK-7j-jMT"/>
-                                    <constraint firstItem="sHC-rz-01e" firstAttribute="centerX" secondItem="34k-vA-Qzc" secondAttribute="centerX" id="UUE-ga-QP8"/>
                                     <constraint firstItem="cCC-QM-aZs" firstAttribute="centerY" secondItem="TZ9-iv-jue" secondAttribute="centerY" id="VsP-1N-xoR"/>
                                     <constraint firstItem="TZ9-iv-jue" firstAttribute="centerY" secondItem="Q1Z-bl-wXq" secondAttribute="centerY" id="XZU-kR-Obv"/>
                                     <constraint firstItem="Q1Z-bl-wXq" firstAttribute="width" secondItem="34k-vA-Qzc" secondAttribute="width" multiplier="0.25" id="goN-G4-Nwh"/>
-                                    <constraint firstItem="sHC-rz-01e" firstAttribute="height" secondItem="34k-vA-Qzc" secondAttribute="height" multiplier="0.8" id="rFQ-vB-NCT"/>
                                     <constraint firstItem="Km5-5A-TqI" firstAttribute="centerY" secondItem="cCC-QM-aZs" secondAttribute="centerY" id="xXn-ln-di8"/>
                                 </constraints>
                                 <variation key="default">
@@ -471,32 +478,29 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="TIb-Yo-knc">
-                                <rect key="frame" x="0.0" y="200" width="600" height="1024"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1024" id="GJR-v1-2pZ"/>
-                                </constraints>
-                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHC-rz-01e">
+                                <rect key="frame" x="0.0" y="13" width="600" height="144"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxI-mI-yYu">
+                                <rect key="frame" x="307" y="301" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.72156862745098038" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="34k-vA-Qzc" firstAttribute="height" secondItem="eOh-zF-JFX" secondAttribute="height" multiplier="0.3" id="CQP-xd-OWY"/>
-                            <constraint firstItem="TIb-Yo-knc" firstAttribute="centerX" secondItem="34k-vA-Qzc" secondAttribute="centerX" id="IlN-zo-pf0"/>
-                            <constraint firstItem="TIb-Yo-knc" firstAttribute="centerX" secondItem="eOh-zF-JFX" secondAttribute="centerX" id="O5T-ms-alc"/>
                             <constraint firstItem="34k-vA-Qzc" firstAttribute="centerX" secondItem="eOh-zF-JFX" secondAttribute="centerX" id="UJj-f2-Ad4"/>
                             <constraint firstItem="34k-vA-Qzc" firstAttribute="top" secondItem="z2J-xP-eRE" secondAttribute="bottom" id="YKd-6Y-jvb"/>
-                            <constraint firstItem="TIb-Yo-knc" firstAttribute="height" secondItem="eOh-zF-JFX" secondAttribute="height" multiplier="0.7" id="btq-YG-ELo"/>
-                            <constraint firstItem="TIb-Yo-knc" firstAttribute="width" secondItem="eOh-zF-JFX" secondAttribute="width" id="mJ3-tf-XDs"/>
-                            <constraint firstItem="TIb-Yo-knc" firstAttribute="top" secondItem="34k-vA-Qzc" secondAttribute="bottom" id="rhN-ub-DwN"/>
                             <constraint firstItem="34k-vA-Qzc" firstAttribute="width" secondItem="eOh-zF-JFX" secondAttribute="width" id="wsa-Xv-CvM"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="IlN-zo-pf0"/>
-                                <exclude reference="btq-YG-ELo"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="userImage" destination="sHC-rz-01e" id="CdZ-3j-Swm"/>
+                        <outlet property="userLabel" destination="YxI-mI-yYu" id="gsU-KE-dgb"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="logUser" id="hVp-8t-THi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6B-R9-FGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -612,8 +616,9 @@
         <image name="diggy_dog_2.png" width="1146" height="722"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ubP-ey-ETh"/>
-        <segue reference="EHT-BJ-7un"/>
-        <segue reference="Lol-ZY-8Jv"/>
+        <segue reference="6vv-Kp-y1N"/>
+        <segue reference="M84-nA-2Ww"/>
+        <segue reference="hVp-8t-THi"/>
+        <segue reference="j3s-Pn-bxI"/>
     </inferredMetricsTieBreakers>
 </document>
